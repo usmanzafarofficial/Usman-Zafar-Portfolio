@@ -24,6 +24,25 @@ const WhatIDo = () => {
       });
     };
   }, []);
+
+  const services = [
+    {
+      title: "Full Stack Development",
+      description: "Building end-to-end web applications including E-commerce platforms, billing systems, and custom solutions with modern architecture.",
+      tags: ["React", "Node.js", "Express", "HTML", "CSS", "JavaScript", "MySQL", "MongoDB", "Git"]
+    },
+    {
+      title: "AI & Machine Learning",
+      description: "Developing AI-powered solutions including Computer Vision models, Natural Language Processing applications, and predictive ML systems.",
+      tags: ["Python", "Machine Learning", "Computer Vision", "NLP", "TensorFlow", "Data Analysis", "Speech Recognition"]
+    },
+    {
+      title: "WordPress Development",
+      description: "Creating custom WordPress themes, plugins, and full CMS solutions for E-commerce, doctor appointment systems, and enterprise websites.",
+      tags: ["WordPress", "PHP", "WooCommerce", "Custom Plugins", "Theme Development", "E-commerce"]
+    }
+  ];
+
   return (
     <div className="whatIDO">
       <div className="what-box">
@@ -58,96 +77,51 @@ const WhatIDo = () => {
               />
             </svg>
           </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
 
-            <div className="what-content-in">
-              <h3>DEVELOP</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
-                <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
-                <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
-                <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+          {services.map((service, index) => (
+            <div
+              className="what-content what-noTouch"
+              ref={(el) => setRef(el, index)}
+              key={index}
+            >
+              <div className="what-border1">
+                <svg height="100%">
+                  <line
+                    x1="0"
+                    y1="0"
+                    x2="100%"
+                    y2="0"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeDasharray="6,6"
+                  />
+                  <line
+                    x1="0"
+                    y1="100%"
+                    x2="100%"
+                    y2="100%"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeDasharray="6,6"
+                  />
+                </svg>
               </div>
-              <div className="what-arrow"></div>
-            </div>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
-            <div className="what-content-in">
-              <h3>DESIGN</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
-              </p>
-              <h5>Skillset & tools</h5>
-              <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
-                <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+              <div className="what-corner"></div>
+
+              <div className="what-content-in">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+                <h5>Skillset & tools</h5>
+                <div className="what-content-flex">
+                  {service.tags.map((tag, idx) => (
+                    <div className="what-tags" key={idx}>{tag}</div>
+                  ))}
+                </div>
+                <div className="what-arrow"></div>
               </div>
-              <div className="what-arrow"></div>
             </div>
-          </div>
+          ))}
+
         </div>
       </div>
     </div>
