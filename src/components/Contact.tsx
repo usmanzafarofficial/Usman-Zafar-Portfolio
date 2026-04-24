@@ -12,6 +12,12 @@ const Contact = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    
+    const phoneNumber = "92320565392";
+    const text = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
+    const waUrl = `https://wa.me/${phoneNumber}?text=${text}`;
+    window.open(waUrl, "_blank");
+
     setStatus("Sent Successfully!");
     setFormData({ name: "", email: "", message: "" });
     setTimeout(() => setStatus(""), 3000);
@@ -32,8 +38,8 @@ const Contact = () => {
               </p>
               <h4>Phone</h4>
               <p>
-                <a href="tel:+9199999999" data-cursor="disable">
-                  +91 99999 99999
+                <a href="tel:0320565392" data-cursor="disable">
+                  0320 565392
                 </a>
               </p>
             </div>
